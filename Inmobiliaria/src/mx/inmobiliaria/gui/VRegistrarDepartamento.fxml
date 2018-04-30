@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="784.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="mx.inmobiliaria.gui.VRegistrarDepartamentoController">
+   <children>
+      <ComboBox fx:id="comboBoxPisoEnEdificio" layoutX="360.0" layoutY="74.0" prefHeight="25.0" prefWidth="78.0" promptText="1" />
+      <ComboBox fx:id="comboBoxBaños" layoutX="583.0" layoutY="74.0" prefHeight="25.0" prefWidth="78.0" promptText="1" />
+      <ComboBox fx:id="comboBoxHabitaciones" layoutX="583.0" layoutY="34.0" prefHeight="25.0" prefWidth="78.0" promptText="1" />
+      <Button layoutX="602.0" layoutY="346.0" mnemonicParsing="false" text="Cancelar registro">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Button layoutX="344.0" layoutY="346.0" mnemonicParsing="false" text="Finalizar registro">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Label layoutX="309.0" layoutY="127.0" text="Detalles extras:">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <TextArea fx:id="textFieldDetalles" layoutX="309.0" layoutY="159.0" prefHeight="175.0" prefWidth="457.0" />
+      <ImageView fx:id="imageViewC" fitHeight="106.0" fitWidth="105.0" layoutX="19.0" layoutY="272.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../resource/image-default.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imageViewD" fitHeight="106.0" fitWidth="105.0" layoutX="160.0" layoutY="272.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../resource/image-default.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imageViewB" fitHeight="106.0" fitWidth="105.0" layoutX="160.0" layoutY="127.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../resource/image-default.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imageViewA" fitHeight="106.0" fitWidth="105.0" layoutX="19.0" layoutY="126.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../resource/image-default.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="310.0" layoutY="74.0" text="m2">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <TextField fx:id="textFieldMetrosCuadrados" layoutX="206.0" layoutY="74.0" prefHeight="25.0" prefWidth="97.0" />
+      <Label layoutX="20.0" layoutY="74.0" text="\$">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <TextField fx:id="textFieldPrecio" layoutX="36.0" layoutY="74.0" prefHeight="25.0" prefWidth="134.0" />
+      <Label layoutX="445.0" layoutY="74.0" text="Piso en edificio">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="668.0" layoutY="73.0" text="Baños">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="668.0" layoutY="33.0" text="Habitaciones">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <TextField fx:id="textFieldUbicacion" layoutX="113.0" layoutY="34.0" prefHeight="25.0" prefWidth="443.0" />
+      <Label layoutX="20.0" layoutY="33.0" text="Ubicación:">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

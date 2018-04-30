@@ -1,0 +1,27 @@
+
+package mx.inmobiliaria.domain;
+
+public class Departamento extends Hogar {
+    
+    private int pisoEnEdificio;
+    
+    public Departamento(Hogar detallesGenerales, int pisoEnEdificio) {
+        super(detallesGenerales.getDueño(),
+              detallesGenerales.getPrecio(),
+              detallesGenerales.getUbicacion(),
+              detallesGenerales.getMetrosCuadrados(),
+              detallesGenerales.getHabitaciones(),
+              detallesGenerales.getBaños(),
+              detallesGenerales.getDetallesExtras());
+        this.pisoEnEdificio = pisoEnEdificio;        
+    }
+
+    public int getPisoEnEdificio() {
+        return pisoEnEdificio;
+    }
+
+    public void setPisoEnEdificio(int pisoEnEdificio) {
+        this.pisoEnEdificio = pisoEnEdificio;
+    }
+      
+}
