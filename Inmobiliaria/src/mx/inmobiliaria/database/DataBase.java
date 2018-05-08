@@ -14,8 +14,8 @@ public class DataBase {
         try {
             String url= "jdbc:mysql://localhost/";
             String databaseName = "inmobiliaria";
-            String userName = "root";
-            String password = "30dst0045z";
+            String userName = "administrador_inmobiliaria";
+            String password = "administrador";
        
             connection = (Connection)DriverManager.getConnection(url+databaseName,userName,password);
         } catch (SQLException ex) {
