@@ -3,24 +3,26 @@ package mx.inmobiliaria.domain;
 
 public class Local {
     
-    private String dueño;
+    private int idDueño;
     private float precio;
     private String ubicacion;
     private int metrosCuadrados;
     private String detallesExtras;
     private TipoLocal tipoDeLocal;
+    private TipoAdquisicion tipoAdquisicion;
 
-    public Local(String dueño, float precio, String ubicacion, int metrosCuadrados, String detallesExtras, TipoLocal tipoDeLocal) {
-        this.dueño = dueño;
+    public Local(int idDueño, float precio, String ubicacion, int metrosCuadrados, String detallesExtras, TipoLocal tipoDeLocal, TipoAdquisicion tipoAdquisicion) {
+        this.idDueño = idDueño;
         this.precio = precio;
         this.ubicacion = ubicacion;
         this.metrosCuadrados = metrosCuadrados;
         this.detallesExtras = detallesExtras;
         this.tipoDeLocal = tipoDeLocal;
+        this.tipoAdquisicion = tipoAdquisicion;
     }
 
-    public String getDueño() {
-        return dueño;
+    public int getIdDueño() {
+        return idDueño;
     }
 
     public float getPrecio() {
@@ -43,8 +45,12 @@ public class Local {
         return tipoDeLocal;
     }
 
-    public void setDueño(String dueño) {
-        this.dueño = dueño;
+    public TipoAdquisicion getTipoAdquisicion() {
+        return tipoAdquisicion;
+    }
+
+    public void setIdDueño(int idDueño) {
+        this.idDueño = idDueño;
     }
 
     public void setPrecio(float precio) {
@@ -65,6 +71,10 @@ public class Local {
 
     public void setTipoDeLocal(TipoLocal tipoDeLocal) {
         this.tipoDeLocal = tipoDeLocal;
+    }
+
+    public void setTipoAdquisicion(TipoAdquisicion tipoAdquisicion) {
+        this.tipoAdquisicion = tipoAdquisicion;
     }
         
 }

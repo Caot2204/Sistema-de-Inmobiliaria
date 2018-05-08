@@ -2,26 +2,28 @@
 package mx.inmobiliaria.domain;
 
 public class Hogar {
-    private String dueño;
+    private int idDueño;
     private float precio;
     private String ubicacion;
     private int metrosCuadrados;
     private int habitaciones;
     private int baños;
     private String detallesExtras;
+    private TipoAdquisicion tipoAdquisicion;
 
-    public Hogar(String dueño, float precio, String ubicacion, int metrosCuadrados, int habitaciones, int baños, String detallesExtras) {
-        this.dueño = dueño;
+    public Hogar(int idDueño, float precio, String ubicacion, int habitaciones, int baños, int metrosCuadrados, String detallesExtras, TipoAdquisicion tipoAdquisicion) {
+        this.idDueño = idDueño;
         this.precio = precio;
         this.ubicacion = ubicacion;
         this.metrosCuadrados = metrosCuadrados;
         this.habitaciones = habitaciones;
         this.baños = baños;
         this.detallesExtras = detallesExtras;
+        this.tipoAdquisicion = tipoAdquisicion;
     }
 
-    public String getDueño() {
-        return dueño;
+    public int getIdDueño() {
+        return idDueño;
     }
 
     public float getPrecio() {
@@ -48,8 +50,12 @@ public class Hogar {
         return detallesExtras;
     }
 
-    public void setDueño(String dueño) {
-        this.dueño = dueño;
+    public TipoAdquisicion getTipoAdquisicion() {
+        return tipoAdquisicion;
+    }
+
+    public void setIdDueño(int idDueño) {
+        this.idDueño = idDueño;
     }
 
     public void setPrecio(float precio) {
@@ -74,6 +80,10 @@ public class Hogar {
 
     public void setDetallesExtras(String detallesExtras) {
         this.detallesExtras = detallesExtras;
+    }
+
+    public void setTipoAdquisicion(TipoAdquisicion tipoAdquisicion) {
+        this.tipoAdquisicion = tipoAdquisicion;
     }
     
 }

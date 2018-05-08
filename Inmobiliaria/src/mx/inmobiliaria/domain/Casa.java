@@ -8,13 +8,14 @@ public class Casa extends Hogar {
     private boolean garaje;
     
     public Casa(Hogar detallesGenerales, int pisosCasa, boolean patioServicio, boolean garaje) {
-        super(detallesGenerales.getDueño(),
+        super(detallesGenerales.getIdDueño(),
               detallesGenerales.getPrecio(),
               detallesGenerales.getUbicacion(),
-              detallesGenerales.getMetrosCuadrados(),
               detallesGenerales.getHabitaciones(),
               detallesGenerales.getBaños(),
-              detallesGenerales.getDetallesExtras());
+              detallesGenerales.getMetrosCuadrados(),
+              detallesGenerales.getDetallesExtras(),
+              detallesGenerales.getTipoAdquisicion());
         this.pisosCasa = pisosCasa;
         this.patioServicio = patioServicio;
         this.garaje = garaje;

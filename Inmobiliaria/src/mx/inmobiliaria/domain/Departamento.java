@@ -6,13 +6,14 @@ public class Departamento extends Hogar {
     private int pisoEnEdificio;
     
     public Departamento(Hogar detallesGenerales, int pisoEnEdificio) {
-        super(detallesGenerales.getDueño(),
+        super(detallesGenerales.getIdDueño(),
               detallesGenerales.getPrecio(),
               detallesGenerales.getUbicacion(),
-              detallesGenerales.getMetrosCuadrados(),
               detallesGenerales.getHabitaciones(),
               detallesGenerales.getBaños(),
-              detallesGenerales.getDetallesExtras());
+              detallesGenerales.getMetrosCuadrados(),
+              detallesGenerales.getDetallesExtras(),
+              detallesGenerales.getTipoAdquisicion()    );
         this.pisoEnEdificio = pisoEnEdificio;        
     }
 

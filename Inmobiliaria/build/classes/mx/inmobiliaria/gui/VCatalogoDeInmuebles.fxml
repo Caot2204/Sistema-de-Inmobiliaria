@@ -1,14 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.media.*?>
+<?import javafx.scene.image.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="200" prefWidth="320" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mx.inmobiliaria.gui.VCatalogoDeInmueblesController">
+<AnchorPane id="AnchorPane" prefHeight="473.0" prefWidth="713.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mx.inmobiliaria.gui.VCatalogoDeInmueblesController">
     <children>
-        <Button layoutX="126" layoutY="90" text="Click Me!" onAction="#handleButtonAction" fx:id="button" />
-        <Label layoutX="126" layoutY="120" minHeight="16" minWidth="69" fx:id="label" />
+      <Label layoutX="567.0" layoutY="21.0" text="Hola &quot;Nombre usuario&quot;" />
+      <MenuButton layoutX="529.0" layoutY="17.0" mnemonicParsing="false">
+        <items>
+          <MenuItem fx:id="menuItemRegistrarInmueble" mnemonicParsing="false" onAction="#mostrarCuadroDialogoOpcionesInmuebles" text="Registrar Inmueble" />
+            <MenuItem mnemonicParsing="false" text="Ver Inmuebles registrados" />
+          <MenuItem mnemonicParsing="false" text="Editar perfil" />
+        </items>
+      </MenuButton>
+      <Separator layoutX="14.0" layoutY="53.0" prefHeight="0.0" prefWidth="677.0" />
     </children>
 </AnchorPane>
