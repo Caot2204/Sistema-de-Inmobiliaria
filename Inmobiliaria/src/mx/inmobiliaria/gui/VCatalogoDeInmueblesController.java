@@ -15,11 +15,16 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ChoiceDialog;
 import javafx.stage.Stage;
+import mx.inmobiliaria.domain.Cliente;
 
 public class VCatalogoDeInmueblesController implements Initializable {
     
+    private Cliente cliente;
+        
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        cliente = new Cliente();
+        cliente.setIdCliente(2);
     }
     
     public void mostrarCuadroDialogoOpcionesInmuebles(){
@@ -47,31 +52,48 @@ public class VCatalogoDeInmueblesController implements Initializable {
         String titulo = null;
         String formulario = null;
         
+        FXMLLoader cargadorIU = new FXMLLoader();        
         switch (tipoInmueble){
             case "Casa":
-                        formulario = "VRegistrarCasa.fxml";
                         titulo = "Registrar una Casa";
+                        cargadorIU.setLocation(getClass().getResource("VRegistrarCasa.fxml"));
+                        try{
+                            cargadorIU.load();
+                        } catch (IOException ex) {
+                            Logger.getLogger(VCatalogoDeInmueblesController.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                        VRegistrarCasaController casaController = cargadorIU.getController();
+                        casaController.setCliente(cliente);
                         break;
             case "Departamento":
-                        formulario = "VRegistrarDepartamento.fxml";
                         titulo = "Registrar un Departamento";
+                        cargadorIU.setLocation(getClass().getResource("VRegistrarDepartamento.fxml"));
+                        try{
+                            cargadorIU.load();
+                        } catch (IOException ex) {
+                            Logger.getLogger(VCatalogoDeInmueblesController.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                        VRegistrarDepartamentoController departamentoController = cargadorIU.getController();
+                        departamentoController.setCliente(cliente);
                         break;
             case "Local":
-                        formulario = "VRegistrarLocal.fxml";
                         titulo = "Registrar una Bodega/Oficina";
+                        cargadorIU.setLocation(getClass().getResource("VRegistrarLocal.fxml"));
+                        try{
+                            cargadorIU.load();
+                        } catch (IOException ex) {
+                            Logger.getLogger(VCatalogoDeInmueblesController.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                        VRegistrarLocalController localController = cargadorIU.getController();
+                        localController.setCliente(cliente);
                         break;   
         }
-        
-        try {
-            Parent padre = FXMLLoader.load(getClass().getResource(formulario));
-            Scene escena = new Scene(padre);
-            Stage escenario = new Stage();
-            escenario.setScene(escena);
-            escenario.setTitle(titulo);
-            escenario.show();
-        } catch (IOException ex) {
-            Logger.getLogger(VCatalogoDeInmueblesController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        Parent padre = cargadorIU.getRoot();
+        Scene escena = new Scene(padre);
+        Stage escenario = new Stage();
+        escenario.setScene(escena);
+        escenario.setTitle(titulo);
+        escenario.show();
     }
     
 }

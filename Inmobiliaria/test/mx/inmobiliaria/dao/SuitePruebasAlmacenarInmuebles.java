@@ -57,12 +57,14 @@ public final class SuitePruebasAlmacenarInmuebles {
         int metrosCuadrados = 450;
         int pisosDeCasa = 2;
         boolean garaje = false;
+        int numeroAutos = 0;
         boolean patioServicio = true;
+        int metrosPatio = 0;
         String detallesExtras = "Patio de servicio de 30 m2.";
         TipoAdquisicion tipoAdquisicion = TipoAdquisicion.venta;
                 
         Hogar detallesGenerales = new Hogar(idDueño, precio, ubicacion, habitaciones, baños, metrosCuadrados, detallesExtras, tipoAdquisicion);
-        casa = new Casa(detallesGenerales, pisosDeCasa, patioServicio, garaje);
+        casa = new Casa(detallesGenerales, pisosDeCasa, patioServicio, metrosPatio, garaje, numeroAutos);
     }
     
     public void inicializarLocal(){

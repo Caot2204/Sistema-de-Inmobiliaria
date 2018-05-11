@@ -56,12 +56,14 @@ public final class SuitePruebasRecuperarInmuebles {
         int metrosCuadrados = 450;
         int pisosDeCasa = 2;
         boolean garaje = false;
+        int numeroAutos = 0;
         boolean patioServicio = true;
+        int metrosPatio = 0;
         String detallesExtras = "Patio de servicio de 30 m2.";
         TipoAdquisicion tipoAdquisicion = TipoAdquisicion.venta;
                 
         Hogar detallesGenerales = new Hogar(idDueño, precio, ubicacion, habitaciones, baños, metrosCuadrados, detallesExtras, tipoAdquisicion);
-        casa = new Casa(detallesGenerales, pisosDeCasa, garaje, patioServicio);
+        casa = new Casa(detallesGenerales, pisosDeCasa, patioServicio, metrosPatio, garaje, numeroAutos);
     }
     
     public void inicializarLocal(){
@@ -87,7 +89,9 @@ public final class SuitePruebasRecuperarInmuebles {
         assertEquals("Prueba de metros cuadrados", this.casa.getMetrosCuadrados(), casaObtenida.getMetrosCuadrados());
         assertEquals("Prueba de pisos de casa", this.casa.getPisosCasa(), casaObtenida.getPisosCasa());
         assertEquals("Prueba de garaje", this.casa.tieneGaraje(), casaObtenida.tieneGaraje());
+        assertEquals("Prueba de autos", this.casa.getNumeroAutos(), casaObtenida.getNumeroAutos());
         assertEquals("Prueba de patioServicio", this.casa.tienePatioServicio(), casaObtenida.tienePatioServicio());
+        assertEquals("Prueba de metros patio", this.casa.getMetrosPatio(), casaObtenida.getMetrosPatio());
         assertEquals("Prueba de detalles extras", this.casa.getDetallesExtras(), casaObtenida.getDetallesExtras());
         assertEquals("Prueba de tipo adquisicion", this.casa.getTipoAdquisicion(), casaObtenida.getTipoAdquisicion());        
     }

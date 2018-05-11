@@ -21,7 +21,7 @@ public class CasaDAO implements ICasaDAO{
     @Override
     public boolean guardarDatosCasa(Casa casa) {
         boolean guardadoRealizado = true;
-        consultaSQL = "INSERT INTO casa (Id_Cliente,Precio,Ubicacion,Habitaciones,Baños,Metros_Cuadrados,Pisos_Casa,Garaje,Patio_Servicio,Detalles_Extras,Tipo_Adquisicion) values (?,?,?,?,?,?,?,?,?,?,?)";
+        consultaSQL = "INSERT INTO casa (Id_Cliente,Precio,Ubicacion,Habitaciones,Baños,Metros_Cuadrados,Pisos_Casa,Garaje,Numero_Autos,Patio_Servicio,Metros_Patio,Detalles_Extras,Tipo_Adquisicion) values (?,?,?,?,?,?,?,?,?,?,?,?,?)";
         conexionDB = DataBase.getDataBaseConnection();
         try{
             sentenciaSQL = conexionDB.prepareStatement(consultaSQL);
@@ -33,9 +33,11 @@ public class CasaDAO implements ICasaDAO{
             sentenciaSQL.setInt(6, casa.getMetrosCuadrados());
             sentenciaSQL.setInt(7, casa.getPisosCasa());
             sentenciaSQL.setBoolean(8, casa.tieneGaraje());
-            sentenciaSQL.setBoolean(9, casa.tienePatioServicio());
-            sentenciaSQL.setString(10, casa.getDetallesExtras());
-            sentenciaSQL.setString(11, casa.getTipoAdquisicion().name());
+            sentenciaSQL.setInt(9, casa.getNumeroAutos());
+            sentenciaSQL.setBoolean(10, casa.tienePatioServicio());
+            sentenciaSQL.setInt(11, casa.getMetrosPatio());
+            sentenciaSQL.setString(12, casa.getDetallesExtras());
+            sentenciaSQL.setString(13, casa.getTipoAdquisicion().name());
             sentenciaSQL.execute();
         } 
         catch (SQLException ex) {
@@ -66,12 +68,14 @@ public class CasaDAO implements ICasaDAO{
                 int metrosCuadrados = resultadoConsulta.getInt("Metros_Cuadrados");
                 int pisosDeCasa = resultadoConsulta.getInt("Pisos_Casa");
                 boolean garaje = resultadoConsulta.getBoolean("Garaje");
+                int numeroAutos = resultadoConsulta.getInt("Numero_Autos");
                 boolean patioServicio = resultadoConsulta.getBoolean("Patio_Servicio");
+                int metrosPatio = resultadoConsulta.getInt("Metros_Patio");
                 String detallesExtras = resultadoConsulta.getString("Detalles_Extras");
                 TipoAdquisicion tipoAdquisicion = TipoAdquisicion.valueOf(resultadoConsulta.getString("Tipo_Adquisicion"));
                 
                 Hogar detallesGenerales = new Hogar(idCliente, precio, ubicacion, habitaciones, baños, metrosCuadrados, detallesExtras, tipoAdquisicion);
-                casa = new Casa(detallesGenerales, pisosDeCasa, garaje, patioServicio);
+                casa = new Casa(detallesGenerales, pisosDeCasa, patioServicio, metrosPatio, garaje, numeroAutos);
             }
         } 
         catch (SQLException ex) {
