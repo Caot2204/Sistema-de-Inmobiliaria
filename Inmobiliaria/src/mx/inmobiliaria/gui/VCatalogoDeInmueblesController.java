@@ -93,6 +93,7 @@ public class VCatalogoDeInmueblesController implements Initializable {
         Stage escenario = new Stage();
         escenario.setScene(escena);
         escenario.setTitle(titulo);
+        escenario.setResizable(false);
         escenario.show();
     }
     

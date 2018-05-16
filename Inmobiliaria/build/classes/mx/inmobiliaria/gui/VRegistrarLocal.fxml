@@ -8,7 +8,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="374.0" prefWidth="801.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mx.inmobiliaria.gui.VRegistrarLocalController">
+<AnchorPane id="AnchorPane" prefHeight="405.0" prefWidth="819.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mx.inmobiliaria.gui.VRegistrarLocalController">
    <children>
       <Label layoutX="17.0" layoutY="20.0" text="Ubicación:">
          <font>
@@ -22,59 +22,79 @@
             <Font size="17.0" />
          </font>
       </Label>
-      <TextField fx:id="textFieldMetrosCuadrados" layoutX="657.0" layoutY="21.0" prefHeight="25.0" prefWidth="97.0" />
-      <Label layoutX="761.0" layoutY="21.0" text="m2">
+      <TextField fx:id="textFieldMetrosCuadrados" layoutX="666.0" layoutY="21.0" prefHeight="25.0" prefWidth="97.0" />
+      <Label layoutX="770.0" layoutY="21.0" text="m2">
          <font>
             <Font size="17.0" />
          </font>
       </Label>
-      <ImageView fx:id="imageViewA" fitHeight="106.0" fitWidth="105.0" layoutX="32.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../resource/image-default.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="imageViewB" fitHeight="106.0" fitWidth="105.0" layoutX="173.0" layoutY="76.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../resource/image-default.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="imageViewD" fitHeight="106.0" fitWidth="105.0" layoutX="173.0" layoutY="221.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../resource/image-default.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="imageViewC" fitHeight="106.0" fitWidth="105.0" layoutX="32.0" layoutY="221.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../resource/image-default.png" />
-         </image>
-      </ImageView>
-      <TextArea fx:id="textAreaDetalles" layoutX="306.0" layoutY="134.0" prefHeight="175.0" prefWidth="479.0" />
-      <Label layoutX="306.0" layoutY="102.0" text="Detalles extras:">
+      <TextArea fx:id="textAreaDetalles" layoutX="315.0" layoutY="151.0" prefHeight="180.0" prefWidth="479.0" />
+      <Label layoutX="315.0" layoutY="111.0" text="Detalles extras:">
          <font>
             <Font size="17.0" />
          </font>
       </Label>
-      <Button layoutX="338.0" layoutY="321.0" mnemonicParsing="false" onAction="#guardarInmueble" text="Finalizar registro">
+      <Button layoutX="345.0" layoutY="346.0" mnemonicParsing="false" onAction="#guardarInmueble" text="Finalizar registro">
          <font>
             <Font size="15.0" />
          </font>
       </Button>
-      <Button layoutX="630.0" layoutY="321.0" mnemonicParsing="false" onAction="#cerrarFormulario" text="Cancelar registro">
+      <Button layoutX="637.0" layoutY="346.0" mnemonicParsing="false" onAction="#cerrarFormulario" text="Cancelar registro">
          <font>
             <Font size="15.0" />
          </font>
       </Button>
-      <Label layoutX="306.0" layoutY="61.0" text="Tipo de adquisición:">
+      <Label layoutX="315.0" layoutY="70.0" text="Tipo de adquisición:">
          <font>
             <Font size="17.0" />
          </font>
       </Label>
-      <ComboBox fx:id="comboBoxTipoAdquisicion" layoutX="467.0" layoutY="62.0" prefHeight="25.0" prefWidth="87.0" />
-      <ComboBox fx:id="comboBoxTipoLocal" layoutX="694.0" layoutY="64.0" prefHeight="25.0" prefWidth="87.0" />
-      <Label layoutX="587.0" layoutY="64.0" text="Tipo de local:">
+      <ComboBox fx:id="comboBoxTipoAdquisicion" layoutX="476.0" layoutY="71.0" prefHeight="25.0" prefWidth="87.0" />
+      <ComboBox fx:id="comboBoxTipoLocal" layoutX="703.0" layoutY="73.0" prefHeight="25.0" prefWidth="87.0" />
+      <Label layoutX="596.0" layoutY="73.0" text="Tipo de local:">
          <font>
             <Font size="17.0" />
          </font>
       </Label>
+      <ImageView fx:id="imageViewA" fitHeight="119.0" fitWidth="121.0" layoutX="14.0" layoutY="64.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../resource/image-default.png" />
+         </image>
+      </ImageView>
+      <Button layoutX="29.0" layoutY="190.0" mnemonicParsing="false" onAction="#seleccionarImagenA" prefHeight="25.0" prefWidth="87.0" text="Subir imágen">
+         <font>
+            <Font size="11.0" />
+         </font>
+      </Button>
+      <Button layoutX="184.0" layoutY="190.0" mnemonicParsing="false" onAction="#seleccionarImagenB" prefHeight="25.0" prefWidth="87.0" text="Subir imágen">
+         <font>
+            <Font size="11.0" />
+         </font>
+      </Button>
+      <Button layoutX="30.0" layoutY="355.0" mnemonicParsing="false" onAction="#seleccionarImagenC" prefHeight="25.0" prefWidth="87.0" text="Subir imágen">
+         <font>
+            <Font size="11.0" />
+         </font>
+      </Button>
+      <Button layoutX="184.0" layoutY="355.0" mnemonicParsing="false" onAction="#seleccionarImagenD" prefHeight="25.0" prefWidth="87.0" text="Subir imágen">
+         <font>
+            <Font size="11.0" />
+         </font>
+      </Button>
+      <ImageView fx:id="imageViewB" fitHeight="119.0" fitWidth="121.0" layoutX="168.0" layoutY="64.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../resource/image-default.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imageViewC" fitHeight="119.0" fitWidth="121.0" layoutX="14.0" layoutY="231.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../resource/image-default.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imageViewD" fitHeight="119.0" fitWidth="121.0" layoutX="168.0" layoutY="231.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../resource/image-default.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

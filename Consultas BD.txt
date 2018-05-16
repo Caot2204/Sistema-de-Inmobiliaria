@@ -1,10 +1,11 @@
-﻿CREATE TABLE cliente (Nombre_Usuario varchar(100), Contraseña_Usuario varchar(100), Nombre varchar(100), Apellido_Paterno varchar(50), Apellido_Materno varchar(50), Num_Telefonico varchar(20), Email varchar(200), Codigo_Postal int, Pais varchar(50), PRIMARY KEY(Id_Cliente)) ENGINE=INNODB;
+CREATE TABLE cliente (Nombre_Usuario varchar(100), Contraseña_Usuario varchar(100), Nombre varchar(100), Apellido_Paterno varchar(50), Apellido_Materno varchar(50), Num_Telefonico varchar(20), Email varchar(200), Codigo_Postal int, Pais varchar(50), PRIMARY KEY(Id_Cliente)) ENGINE=INNODB;
 
-CREATE TABLE casa (Id_Hogar int NOT NULL AUTO_INCREMENT, Id_Cliente int NOT NULL, Precio double, Ubicacion varchar(1000), Habitaciones int, Baños int, Metros_Cuadrados int, Pisos_Casa int, Garaje boolean, Patio_Servicio boolean, Detalles_Extras varchar(1000), Tipo_Adquisicion Enum('venta','renta'), PRIMARY KEY(Id_Hogar), FOREIGN KEY(Id_Cliente) REFERENCES cliente (Id_Cliente)) ENGINE=INNODB;
+CREATE TABLE casa (Id_Hogar int NOT NULL AUTO_INCREMENT, Id_Cliente int NOT NULL, Precio double, Ubicacion varchar(1000), Habitaciones int, Baños int, Metros_Cuadrados int, Pisos_Casa int, Garaje boolean, Numero_Autos int, Patio_Servicio boolean, Metros_Patio int, Detalles_Extras varchar(1000), Tipo_Adquisicion Enum('venta','renta'), Imagen_A longblob, Imagen_B longblob, Imagen_C longblob, Imagen_D longblob, PRIMARY KEY(Id_Hogar), FOREIGN KEY(Id_Cliente) REFERENCES cliente (Id_Cliente)) ENGINE=INNODB;
 
-CREATE TABLE departamento (Id_Hogar int NOT NULL AUTO_INCREMENT, Id_Cliente int NOT NULL, Precio double, Ubicacion varchar(1000), Habitaciones int, Baños int, Metros_Cuadrados int, Piso_En_Edificio int, Detalles_Extras varchar(1000), Tipo_Adquisicion Enum('venta','renta'), PRIMARY KEY(Id_Hogar), FOREIGN KEY(Id_Cliente) REFERENCES cliente (Id_Cliente)) ENGINE=INNODB;
+CREATE TABLE departamento (Id_Hogar int NOT NULL AUTO_INCREMENT, Id_Cliente int NOT NULL, Precio double, Ubicacion varchar(1000), Habitaciones int, Baños int, Metros_Cuadrados int, Piso_En_Edificio int, Detalles_Extras varchar(1000), Tipo_Adquisicion Enum('venta','renta'), Imagen_A longblob, Imagen_B longblob, Imagen_C longblob, Imagen_D longblob, PRIMARY KEY(Id_Hogar), FOREIGN KEY(Id_Cliente) REFERENCES cliente (Id_Cliente)) ENGINE=INNODB;
 
-CREATE TABLE local (Id_Local int NOT NULL AUTO_INCREMENT, Id_Cliente int NOT NULL, Precio double, Ubicacion varchar(1000), Metros_Cuadrados int, Detalles_Extras varchar(1000), Tipo_Inmueble enum('oficina','bodega'), Tipo_Adquisicion Enum('venta','renta'), PRIMARY KEY(Id_Local), FOREIGN KEY(Id_Cliente) REFERENCES cliente (Id_Cliente)) ENGINE=INNODB;
+CREATE TABLE local (Id_Local int NOT NULL AUTO_INCREMENT, Id_Cliente int NOT NULL, Precio double, Ubicacion varchar(1000), Metros_Cuadrados int, Detalles_Extras varchar(1000), Tipo_Local enum('oficina','bodega'), Tipo_Adquisicion Enum('venta','renta'), Imagen_A longblob, Imagen_B longblob, Imagen_C longblob, Imagen_D longblob, PRIMARY KEY(Id_Local), FOREIGN KEY(Id_Cliente) REFERENCES cliente (Id_Cliente)) ENGINE=INNODB;
+
 
 CREATE TABLE precios_dias_publicidad (Dias int, Precio double, PRIMARY KEY(Dias));
 
