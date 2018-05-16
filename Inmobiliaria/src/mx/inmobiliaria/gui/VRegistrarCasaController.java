@@ -1,7 +1,6 @@
 
 package mx.inmobiliaria.gui;
 
-import java.io.File;
 import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
@@ -14,9 +13,7 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import mx.inmobiliaria.dao.CasaDAO;
 import mx.inmobiliaria.domain.Casa;
@@ -35,7 +32,6 @@ public class VRegistrarCasaController implements Initializable {
     private int baños;
     private String detallesExtras;
     private TipoAdquisicion tipoAdquisicion;
-    private File[] imagenes;
     private int pisosDeCasa;
     private boolean tieneGaraje;
     private int numeroAutos;
@@ -79,25 +75,21 @@ public class VRegistrarCasaController implements Initializable {
     
     @FXML
     private ComboBox comboBoxTipoAdquisicion;
-    
     @FXML
     private ImageView imageViewA;
-    
     @FXML
     private ImageView imageViewB;
-    
-    @FXML
-    private ImageView imageViewC;
-    
     @FXML
     private ImageView imageViewD;
+    @FXML
+    private ImageView imageViewC;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         comboBoxHabitaciones.getItems().addAll("1","2","3","4","5","6","7","8","9","10");
         comboBoxBaños.getItems().addAll("1","2","3","4","5","6","7","8","9","10");
         comboBoxPisos.getItems().addAll("1","2","3","4","5","6","7","8","9","10");
-        comboBoxAutos.getItems().addAll("0","1","2","3","4","5","6","7","8","9","10");
+        comboBoxAutos.getItems().addAll("1","2","3","4","5","6","7","8","9","10");
         comboBoxTipoAdquisicion.getItems().addAll("venta","renta");
         
         comboBoxHabitaciones.setValue("1");
@@ -109,42 +101,18 @@ public class VRegistrarCasaController implements Initializable {
         textFieldMCPatio.setDisable(true);
         comboBoxAutos.setDisable(true);
         
-        imagenes = new File[4];
-        imagenes[0] = null;
-        imagenes[1] = null;
-        imagenes[2] = null;
-        imagenes[3] = null;
-    }
-    
-    public void cambiarEstadoComboAutos() {
-        if (checkBoxGaraje.selectedProperty().get()) {
-            comboBoxAutos.setDisable(false);
-        }
-        else {
-            comboBoxAutos.setDisable(true);
-            comboBoxAutos.setValue("0");
-        }
-    }
-    
-    public void cambiarEstadoMCPatio() {
-        if (checkBoxPatio.selectedProperty().get()) {
-            textFieldMCPatio.setDisable(false);            
-        }
-        else {
-            textFieldMCPatio.setDisable(true);
-        }
-        
     }
     
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
     }
     
+    @FXML
     public void guardarInmueble() {
         if (validarCampos()) {
             if (solicitarConfirmacionTerminarRegistro()) {
                 obtenerDatosDeIU();
-                Hogar detallesGenerales = new Hogar(cliente.getIdCliente(), precio, ubicacion, habitaciones, baños, metrosCuadrados, detallesExtras, tipoAdquisicion, imagenes);
+                Hogar detallesGenerales = new Hogar(cliente.getIdCliente(), precio, ubicacion, habitaciones, baños, metrosCuadrados, detallesExtras, tipoAdquisicion);
                 Casa casa = new Casa(detallesGenerales, pisosDeCasa, tienePatio, metrosPatio, tieneGaraje, numeroAutos);
                 casaDAO = new CasaDAO();
                 if (casaDAO.guardarDatosCasa(casa)){
@@ -158,80 +126,10 @@ public class VRegistrarCasaController implements Initializable {
         }
     }
     
-    public void cerrarFormulario() {
+    @FXML
+    public void cerrarFormulario() { //Cierra una ventana poniendo como referencia una ubicación
         Stage escenaActual = (Stage) textFieldUbicacion.getScene().getWindow();
         escenaActual.close();        
-    }
-    
-    public File cargarImagen() {
-        FileChooser fileChooser = new FileChooser();
-        fileChooser.setTitle("Escoja una imagen");
-        return fileChooser.showOpenDialog(imageViewA.getScene().getWindow());
-    }
-    
-    public void seleccionarImagenA() {
-        File archivoElegido = cargarImagen();
-        if (archivoElegido != null){
-            if (archivoElegido.getName().endsWith(".jpg") || archivoElegido.getName().endsWith(".png")){
-                imagenes[0] = archivoElegido;
-                Image imagen = new Image("file:" + imagenes[0].getAbsolutePath());
-                imageViewA.setImage(imagen);                
-            }
-            else {
-                mostrarMensajeArchivoInvalido();
-            }
-        }
-    }
-    
-    public void seleccionarImagenB() {
-        File archivoElegido = cargarImagen();
-        if (archivoElegido != null){
-            if (archivoElegido.getName().endsWith(".jpg") || archivoElegido.getName().endsWith(".png")){
-                imagenes[1] = archivoElegido;
-                Image imagen = new Image("file:" + imagenes[1].getAbsolutePath());
-                imageViewB.setImage(imagen);                
-            }
-            else {
-                mostrarMensajeArchivoInvalido();
-            }
-        }
-    }
-    
-    public void seleccionarImagenC() {
-        File archivoElegido = cargarImagen();
-        if (archivoElegido != null){
-            if (archivoElegido.getName().endsWith(".jpg") || archivoElegido.getName().endsWith(".png")){
-                imagenes[2] = archivoElegido;
-                Image imagen = new Image("file:" + imagenes[2].getAbsolutePath());
-                imageViewC.setImage(imagen);                
-            }
-            else {
-                mostrarMensajeArchivoInvalido();
-            }
-        }
-    }
-    
-    public void seleccionarImagenD() {
-        File archivoElegido = cargarImagen();
-        if (archivoElegido != null){
-            if (archivoElegido.getName().endsWith(".jpg") || archivoElegido.getName().endsWith(".png")){
-                imagenes[3] = archivoElegido;
-                Image imagen = new Image("file:" + imagenes[3].getAbsolutePath());
-                imageViewD.setImage(imagen);                 
-            }
-            else {
-                mostrarMensajeArchivoInvalido();
-            }
-        }
-    }
-    
-    public void mostrarMensajeArchivoInvalido() {
-        Alert mensajeFaltanCampos = new Alert(AlertType.ERROR);
-        mensajeFaltanCampos.setTitle("Tipo de archivo inválido");
-        mensajeFaltanCampos.setHeaderText(null);
-        mensajeFaltanCampos.setContentText("Por favor elija una imagen válida (.jpg o .png)");
-
-        mensajeFaltanCampos.showAndWait();
     }
     
     public void obtenerDatosDeIU() {
@@ -291,7 +189,7 @@ public class VRegistrarCasaController implements Initializable {
         mensajeFaltanCampos.showAndWait();
     }
     
-    public boolean solicitarConfirmacionTerminarRegistro() {
+    public boolean solicitarConfirmacionTerminarRegistro() {// Manda mensaje para confirmar que desea guardar un inmueble
         boolean confirmacion = false;
         
         Alert mensajeConfirmacion = new Alert(AlertType.CONFIRMATION);
@@ -309,7 +207,7 @@ public class VRegistrarCasaController implements Initializable {
     }
     
     public void mostrarMensajeExitoGuardado() {
-        Alert mensajeExito = new Alert(AlertType.INFORMATION);
+        Alert mensajeExito = new Alert(AlertType.INFORMATION);//Mensaje informando que su inmueble a sido guardado con extio
         mensajeExito.setTitle("Éxito al guardar.");
         mensajeExito.setHeaderText(null);
         mensajeExito.setContentText("¡El Inmueble a sido publicado en el Catálogo con éxito!");
@@ -318,7 +216,7 @@ public class VRegistrarCasaController implements Initializable {
     }
     
     public void mostrarMensajeFalloGuardado() {
-        Alert mensajeFallo = new Alert(AlertType.ERROR);
+        Alert mensajeFallo = new Alert(AlertType.ERROR);// Manda error al usuario indicando que no se guardado correctamemte
         mensajeFallo.setTitle("Error al guardar.");
         mensajeFallo.setHeaderText(null);
         mensajeFallo.setContentText("Error al guardar el Inmueble, intente de nuevo");

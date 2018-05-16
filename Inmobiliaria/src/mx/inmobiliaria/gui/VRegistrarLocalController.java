@@ -1,7 +1,6 @@
 
 package mx.inmobiliaria.gui;
 
-import java.io.File;
 import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
@@ -12,10 +11,8 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import mx.inmobiliaria.dao.DepartamentoDAO;
 import mx.inmobiliaria.dao.LocalDAO;
 import mx.inmobiliaria.domain.Cliente;
 import mx.inmobiliaria.domain.Local;
@@ -31,9 +28,10 @@ public class VRegistrarLocalController implements Initializable {
     private String detallesExtras;
     private TipoLocal tipoLocal;
     private TipoAdquisicion tipoAdquisicion;
-    private File[] imagenes;
     
     private LocalDAO localDAO;
+    
+    private DepartamentoDAO departamentoDAO;
 
     @FXML
     private TextField textFieldUbicacion;
@@ -53,18 +51,6 @@ public class VRegistrarLocalController implements Initializable {
     @FXML
     private ComboBox comboBoxTipoLocal;
     
-    @FXML
-    private ImageView imageViewA;
-    
-    @FXML
-    private ImageView imageViewB;
-    
-    @FXML
-    private ImageView imageViewC;
-    
-    @FXML
-    private ImageView imageViewD;
-    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         comboBoxTipoAdquisicion.getItems().addAll("venta","renta");
@@ -72,8 +58,6 @@ public class VRegistrarLocalController implements Initializable {
         
         comboBoxTipoAdquisicion.setValue("venta");
         comboBoxTipoLocal.setValue("bodega");
-        
-        imagenes = new File[4];
     }  
     
     public void setCliente(Cliente cliente) {
@@ -84,7 +68,7 @@ public class VRegistrarLocalController implements Initializable {
         if (validarCampos()) {
             if (solicitarConfirmacionTerminarRegistro()) {
                 obtenerDatosDeIU();
-                Local local = new Local(cliente.getIdCliente(), precio, ubicacion, metrosCuadrados, detallesExtras, tipoLocal, tipoAdquisicion, imagenes);
+                Local local = new Local(cliente.getIdCliente(), precio, ubicacion, metrosCuadrados, detallesExtras, tipoLocal, tipoAdquisicion);
                 localDAO = new LocalDAO();
                 if (localDAO.guardarLocal(local)){
                     mostrarMensajeExitoGuardado();
@@ -100,77 +84,6 @@ public class VRegistrarLocalController implements Initializable {
     public void cerrarFormulario() {
         Stage escenaActual = (Stage) textFieldUbicacion.getScene().getWindow();
         escenaActual.close();        
-    }
-    
-    public File cargarImagen() {
-        FileChooser fileChooser = new FileChooser();
-        fileChooser.setTitle("Escoja una imagen");
-        return fileChooser.showOpenDialog(imageViewA.getScene().getWindow());
-    }
-    
-    public void seleccionarImagenA() {
-        File archivoElegido = cargarImagen();
-        if (archivoElegido != null){
-            if (archivoElegido.getName().endsWith(".jpg") || archivoElegido.getName().endsWith(".png")){
-                imagenes[0] = archivoElegido;
-                Image imagen = new Image("file:" + imagenes[0].getAbsolutePath());
-                imageViewA.setImage(imagen);                
-            }
-            else {
-                mostrarMensajeArchivoInvalido();
-            }
-        }
-    }
-    
-    public void seleccionarImagenB() {
-        File archivoElegido = cargarImagen();
-        if (archivoElegido != null){
-            if (archivoElegido.getName().endsWith(".jpg") || archivoElegido.getName().endsWith(".png")){
-                imagenes[1] = archivoElegido;
-                Image imagen = new Image("file:" + imagenes[1].getAbsolutePath());
-                imageViewB.setImage(imagen);                
-            }
-            else {
-                mostrarMensajeArchivoInvalido();
-            }
-        }
-    }
-    
-    public void seleccionarImagenC() {
-        File archivoElegido = cargarImagen();
-        if (archivoElegido != null){
-            if (archivoElegido.getName().endsWith(".jpg") || archivoElegido.getName().endsWith(".png")){
-                imagenes[2] = archivoElegido;
-                Image imagen = new Image("file:" + imagenes[2].getAbsolutePath());
-                imageViewC.setImage(imagen);                
-            }
-            else {
-                mostrarMensajeArchivoInvalido();
-            }
-        }
-    }
-    
-    public void seleccionarImagenD() {
-        File archivoElegido = cargarImagen();
-        if (archivoElegido != null){
-            if (archivoElegido.getName().endsWith(".jpg") || archivoElegido.getName().endsWith(".png")){
-                imagenes[3] = archivoElegido;
-                Image imagen = new Image("file:" + imagenes[3].getAbsolutePath());
-                imageViewD.setImage(imagen);                 
-            }
-            else {
-                mostrarMensajeArchivoInvalido();
-            }
-        }
-    }
-    
-    public void mostrarMensajeArchivoInvalido() {
-        Alert mensajeFaltanCampos = new Alert(Alert.AlertType.ERROR);
-        mensajeFaltanCampos.setTitle("Tipo de archivo inválido");
-        mensajeFaltanCampos.setHeaderText(null);
-        mensajeFaltanCampos.setContentText("Por favor elija una imagen válida (.jpg o .png)");
-
-        mensajeFaltanCampos.showAndWait();
     }
     
     public void obtenerDatosDeIU() {

@@ -25,8 +25,8 @@ public class VCatalogoDeInmueblesController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         cliente = new Cliente();
         cliente.setIdCliente(2);
+           
     }
-    
     public void mostrarCuadroDialogoOpcionesInmuebles(){
         List<String> opcionesInmuebles = new ArrayList<>();
         opcionesInmuebles.add("Casa");
@@ -93,7 +93,6 @@ public class VCatalogoDeInmueblesController implements Initializable {
         Stage escenario = new Stage();
         escenario.setScene(escena);
         escenario.setTitle(titulo);
-        escenario.setResizable(false);
         escenario.show();
     }
     

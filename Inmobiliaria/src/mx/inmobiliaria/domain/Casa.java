@@ -17,14 +17,12 @@ public class Casa extends Hogar {
               detallesGenerales.getBaños(),
               detallesGenerales.getMetrosCuadrados(),
               detallesGenerales.getDetallesExtras(),
-              detallesGenerales.getTipoAdquisicion(),
-              detallesGenerales.getImagenes());
+              detallesGenerales.getTipoAdquisicion());
         this.pisosCasa = pisosCasa;
         this.patioServicio = patioServicio;
         this.metrosPatio = metrosPatio;
         this.garaje = garaje;
         this.numeroAutos = numeroAutos;
-        
     }
 
     public int getPisosCasa() {

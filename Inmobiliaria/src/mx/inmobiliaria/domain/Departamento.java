@@ -13,8 +13,7 @@ public class Departamento extends Hogar {
               detallesGenerales.getBaños(),
               detallesGenerales.getMetrosCuadrados(),
               detallesGenerales.getDetallesExtras(),
-              detallesGenerales.getTipoAdquisicion(),
-              detallesGenerales.getImagenes());
+              detallesGenerales.getTipoAdquisicion()    );
         this.pisoEnEdificio = pisoEnEdificio;        
     }
 

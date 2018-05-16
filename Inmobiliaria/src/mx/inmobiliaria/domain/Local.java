@@ -1,8 +1,6 @@
 
 package mx.inmobiliaria.domain;
 
-import java.io.File;
-
 public class Local {
     
     private int idDueño;
@@ -12,9 +10,8 @@ public class Local {
     private String detallesExtras;
     private TipoLocal tipoDeLocal;
     private TipoAdquisicion tipoAdquisicion;
-    private File[] imagenes;
 
-    public Local(int idDueño, float precio, String ubicacion, int metrosCuadrados, String detallesExtras, TipoLocal tipoDeLocal, TipoAdquisicion tipoAdquisicion, File[] imagenes) {
+    public Local(int idDueño, float precio, String ubicacion, int metrosCuadrados, String detallesExtras, TipoLocal tipoDeLocal, TipoAdquisicion tipoAdquisicion) {
         this.idDueño = idDueño;
         this.precio = precio;
         this.ubicacion = ubicacion;
@@ -22,7 +19,6 @@ public class Local {
         this.detallesExtras = detallesExtras;
         this.tipoDeLocal = tipoDeLocal;
         this.tipoAdquisicion = tipoAdquisicion;
-        this.imagenes = imagenes;
     }
 
     public int getIdDueño() {
@@ -53,10 +49,6 @@ public class Local {
         return tipoAdquisicion;
     }
 
-    public File[] getImagenes() {
-        return imagenes;
-    }
-
     public void setIdDueño(int idDueño) {
         this.idDueño = idDueño;
     }
@@ -83,10 +75,6 @@ public class Local {
 
     public void setTipoAdquisicion(TipoAdquisicion tipoAdquisicion) {
         this.tipoAdquisicion = tipoAdquisicion;
-    }
-
-    public void setImagenes(File[] imagenes) {
-        this.imagenes = imagenes;
     }
         
 }

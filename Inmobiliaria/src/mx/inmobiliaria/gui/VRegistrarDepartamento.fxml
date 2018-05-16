@@ -8,27 +8,47 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="450.0" prefWidth="964.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mx.inmobiliaria.gui.VRegistrarDepartamentoController">
+<AnchorPane id="AnchorPane" prefHeight="431.0" prefWidth="784.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mx.inmobiliaria.gui.VRegistrarDepartamentoController">
    <children>
       <ComboBox fx:id="comboBoxPisoEnEdificio" layoutX="360.0" layoutY="62.0" prefHeight="25.0" prefWidth="78.0" promptText="1" />
       <ComboBox fx:id="comboBoxBaños" layoutX="583.0" layoutY="62.0" prefHeight="25.0" prefWidth="78.0" promptText="1" />
       <ComboBox fx:id="comboBoxHabitaciones" layoutX="583.0" layoutY="22.0" prefHeight="25.0" prefWidth="78.0" promptText="1" />
-      <Button layoutX="740.0" layoutY="388.0" mnemonicParsing="false" onAction="#cerrarFormulario" text="Cancelar registro">
+      <Button layoutX="602.0" layoutY="378.0" mnemonicParsing="false" onAction="#cerrarFormulario" text="Cancelar registro">
          <font>
             <Font size="15.0" />
          </font>
       </Button>
-      <Button layoutX="411.0" layoutY="388.0" mnemonicParsing="false" onAction="#guardarInmueble" text="Finalizar registro">
+      <Button layoutX="344.0" layoutY="378.0" mnemonicParsing="false" onAction="#guardarInmueble" text="Finalizar registro">
          <font>
             <Font size="15.0" />
          </font>
       </Button>
-      <Label layoutX="335.0" layoutY="112.0" text="Detalles extras:">
+      <Label layoutX="309.0" layoutY="159.0" text="Detalles extras:">
          <font>
             <Font size="17.0" />
          </font>
       </Label>
-      <TextArea fx:id="textAreaDetalles" layoutX="338.0" layoutY="152.0" prefHeight="215.0" prefWidth="611.0" />
+      <TextArea fx:id="textAreaDetalles" layoutX="309.0" layoutY="191.0" prefHeight="175.0" prefWidth="457.0" />
+      <ImageView fx:id="imageViewC" fitHeight="106.0" fitWidth="105.0" layoutX="20.0" layoutY="261.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../resource/image-default.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imageViewD" fitHeight="106.0" fitWidth="105.0" layoutX="161.0" layoutY="261.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../resource/image-default.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imageViewB" fitHeight="106.0" fitWidth="105.0" layoutX="161.0" layoutY="116.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../resource/image-default.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imageViewA" fitHeight="106.0" fitWidth="105.0" layoutX="20.0" layoutY="115.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../resource/image-default.png" />
+         </image>
+      </ImageView>
       <Label layoutX="310.0" layoutY="62.0" text="m2">
          <font>
             <Font size="17.0" />
@@ -62,51 +82,11 @@
             <Font size="17.0" />
          </font>
       </Label>
-      <ComboBox fx:id="comboBoxTipoAdquisicion" layoutX="828.0" layoutY="62.0" prefHeight="25.0" prefWidth="87.0" />
-      <Label layoutX="796.0" layoutY="22.0" text="Tipo de adquisición:">
+      <ComboBox fx:id="comboBoxTipoAdquisicion" layoutX="470.0" layoutY="113.0" prefHeight="25.0" prefWidth="87.0" />
+      <Label layoutX="309.0" layoutY="112.0" text="Tipo de adquisición:">
          <font>
             <Font size="17.0" />
          </font>
       </Label>
-      <ImageView fx:id="imageViewD" fitHeight="119.0" fitWidth="121.0" layoutX="184.0" layoutY="279.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../resource/image-default.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="imageViewC" fitHeight="119.0" fitWidth="121.0" layoutX="30.0" layoutY="279.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../resource/image-default.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="imageViewB" fitHeight="119.0" fitWidth="121.0" layoutX="184.0" layoutY="112.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../resource/image-default.png" />
-         </image>
-      </ImageView>
-      <Button layoutX="200.0" layoutY="403.0" mnemonicParsing="false" onAction="#seleccionarImagenD" prefHeight="25.0" prefWidth="87.0" text="Subir imágen">
-         <font>
-            <Font size="11.0" />
-         </font>
-      </Button>
-      <Button layoutX="46.0" layoutY="403.0" mnemonicParsing="false" onAction="#seleccionarImagenC" prefHeight="25.0" prefWidth="87.0" text="Subir imágen">
-         <font>
-            <Font size="11.0" />
-         </font>
-      </Button>
-      <Button layoutX="200.0" layoutY="238.0" mnemonicParsing="false" onAction="#seleccionarImagenB" prefHeight="25.0" prefWidth="87.0" text="Subir imágen">
-         <font>
-            <Font size="11.0" />
-         </font>
-      </Button>
-      <Button layoutX="45.0" layoutY="238.0" mnemonicParsing="false" onAction="#seleccionarImagenA" prefHeight="25.0" prefWidth="87.0" text="Subir imágen">
-         <font>
-            <Font size="11.0" />
-         </font>
-      </Button>
-      <ImageView fx:id="imageViewA" fitHeight="119.0" fitWidth="121.0" layoutX="30.0" layoutY="112.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../resource/image-default.png" />
-         </image>
-      </ImageView>
    </children>
 </AnchorPane>

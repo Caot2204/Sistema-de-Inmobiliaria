@@ -1,7 +1,6 @@
 
 package mx.inmobiliaria.dao;
 
-import java.io.File;
 import mx.inmobiliaria.domain.Casa;
 import mx.inmobiliaria.domain.Departamento;
 import mx.inmobiliaria.domain.Hogar;
@@ -44,9 +43,8 @@ public final class SuitePruebasAlmacenarInmuebles {
         int pisoEnEdificio = 5;
         String detallesExtras = "Bella vista a los lagos.";
         TipoAdquisicion tipoAdquisicion = TipoAdquisicion.renta;
-        File[] imagenes = new File[4];
                 
-        Hogar detallesGenerales = new Hogar(idDueño, precio, ubicacion, habitaciones, baños, metrosCuadrados, detallesExtras, tipoAdquisicion, imagenes);
+        Hogar detallesGenerales = new Hogar(idDueño, precio, ubicacion, habitaciones, baños, metrosCuadrados, detallesExtras, tipoAdquisicion);
         departamento = new Departamento(detallesGenerales, pisoEnEdificio);
     }
     
@@ -64,9 +62,8 @@ public final class SuitePruebasAlmacenarInmuebles {
         int metrosPatio = 0;
         String detallesExtras = "Patio de servicio de 30 m2.";
         TipoAdquisicion tipoAdquisicion = TipoAdquisicion.venta;
-        File[] imagenes = new File[4];
                 
-        Hogar detallesGenerales = new Hogar(idDueño, precio, ubicacion, habitaciones, baños, metrosCuadrados, detallesExtras, tipoAdquisicion, imagenes);
+        Hogar detallesGenerales = new Hogar(idDueño, precio, ubicacion, habitaciones, baños, metrosCuadrados, detallesExtras, tipoAdquisicion);
         casa = new Casa(detallesGenerales, pisosDeCasa, patioServicio, metrosPatio, garaje, numeroAutos);
     }
     
@@ -78,9 +75,8 @@ public final class SuitePruebasAlmacenarInmuebles {
         String detallesExtras = "Oficina con un baño.";
         TipoLocal tipoInmueble = TipoLocal.oficina;
         TipoAdquisicion tipoAdquisicion = TipoAdquisicion.venta;
-        File[] imagenes = new File[4];
         
-        local = new Local(idDueño, precio, ubicacion, metrosCuadrados, detallesExtras, tipoInmueble, tipoAdquisicion, imagenes);        
+        local = new Local(idDueño, precio, ubicacion, metrosCuadrados, detallesExtras, tipoInmueble, tipoAdquisicion);        
     }
     
     @Test

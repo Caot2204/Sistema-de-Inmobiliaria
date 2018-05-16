@@ -1,7 +1,6 @@
 
 package mx.inmobiliaria.gui;
 
-import java.io.File;
 import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
@@ -12,9 +11,6 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import mx.inmobiliaria.dao.DepartamentoDAO;
 import mx.inmobiliaria.domain.Cliente;
@@ -32,7 +28,6 @@ public class VRegistrarDepartamentoController implements Initializable {
     private int baños;
     private String detallesExtras;
     private TipoAdquisicion tipoAdquisicion;
-    private File[] imagenes;
     private int pisoEnEdificio;
     
     private DepartamentoDAO departamentoDAO;
@@ -61,18 +56,6 @@ public class VRegistrarDepartamentoController implements Initializable {
     @FXML
     private ComboBox comboBoxTipoAdquisicion;
     
-    @FXML
-    private ImageView imageViewA;
-    
-    @FXML
-    private ImageView imageViewB;
-    
-    @FXML
-    private ImageView imageViewC;
-    
-    @FXML
-    private ImageView imageViewD;
-    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         comboBoxHabitaciones.getItems().addAll("1","2","3","4","5","6","7","8","9","10");
@@ -84,8 +67,6 @@ public class VRegistrarDepartamentoController implements Initializable {
         comboBoxBaños.setValue("1");
         comboBoxPisoEnEdificio.setValue("1");
         comboBoxTipoAdquisicion.setValue("venta");
-        
-        imagenes = new File[4];
     }
     
     public void setCliente(Cliente cliente) {
@@ -96,7 +77,7 @@ public class VRegistrarDepartamentoController implements Initializable {
         if (validarCampos()) {
             if (solicitarConfirmacionTerminarRegistro()) {
                 obtenerDatosDeIU();
-                Hogar detallesGenerales = new Hogar(cliente.getIdCliente(), precio, ubicacion, habitaciones, baños, metrosCuadrados, detallesExtras, tipoAdquisicion, imagenes);
+                Hogar detallesGenerales = new Hogar(cliente.getIdCliente(), precio, ubicacion, habitaciones, baños, metrosCuadrados, detallesExtras, tipoAdquisicion);
                 Departamento departamento = new Departamento(detallesGenerales, pisoEnEdificio);
                 departamentoDAO = new DepartamentoDAO();
                 if (departamentoDAO.guardarDepartamento(departamento)){
@@ -113,77 +94,6 @@ public class VRegistrarDepartamentoController implements Initializable {
     public void cerrarFormulario() {
         Stage escenaActual = (Stage) textFieldUbicacion.getScene().getWindow();
         escenaActual.close();        
-    }
-    
-    public File cargarImagen() {
-        FileChooser fileChooser = new FileChooser();
-        fileChooser.setTitle("Escoja una imagen");
-        return fileChooser.showOpenDialog(imageViewA.getScene().getWindow());
-    }
-    
-    public void seleccionarImagenA() {
-        File archivoElegido = cargarImagen();
-        if (archivoElegido != null){
-            if (archivoElegido.getName().endsWith(".jpg") || archivoElegido.getName().endsWith(".png")){
-                imagenes[0] = archivoElegido;
-                Image imagen = new Image("file:" + imagenes[0].getAbsolutePath());
-                imageViewA.setImage(imagen);                
-            }
-            else {
-                mostrarMensajeArchivoInvalido();
-            }
-        }
-    }
-    
-    public void seleccionarImagenB() {
-        File archivoElegido = cargarImagen();
-        if (archivoElegido != null){
-            if (archivoElegido.getName().endsWith(".jpg") || archivoElegido.getName().endsWith(".png")){
-                imagenes[1] = archivoElegido;
-                Image imagen = new Image("file:" + imagenes[1].getAbsolutePath());
-                imageViewB.setImage(imagen);                
-            }
-            else {
-                mostrarMensajeArchivoInvalido();
-            }
-        }
-    }
-    
-    public void seleccionarImagenC() {
-        File archivoElegido = cargarImagen();
-        if (archivoElegido != null){
-            if (archivoElegido.getName().endsWith(".jpg") || archivoElegido.getName().endsWith(".png")){
-                imagenes[2] = archivoElegido;
-                Image imagen = new Image("file:" + imagenes[2].getAbsolutePath());
-                imageViewC.setImage(imagen);                
-            }
-            else {
-                mostrarMensajeArchivoInvalido();
-            }
-        }
-    }
-    
-    public void seleccionarImagenD() {
-        File archivoElegido = cargarImagen();
-        if (archivoElegido != null){
-            if (archivoElegido.getName().endsWith(".jpg") || archivoElegido.getName().endsWith(".png")){
-                imagenes[3] = archivoElegido;
-                Image imagen = new Image("file:" + imagenes[3].getAbsolutePath());
-                imageViewD.setImage(imagen);                 
-            }
-            else {
-                mostrarMensajeArchivoInvalido();
-            }
-        }
-    }
-    
-    public void mostrarMensajeArchivoInvalido() {
-        Alert mensajeFaltanCampos = new Alert(Alert.AlertType.ERROR);
-        mensajeFaltanCampos.setTitle("Tipo de archivo inválido");
-        mensajeFaltanCampos.setHeaderText(null);
-        mensajeFaltanCampos.setContentText("Por favor elija una imagen válida (.jpg o .png)");
-
-        mensajeFaltanCampos.showAndWait();
     }
     
     public void obtenerDatosDeIU() {
