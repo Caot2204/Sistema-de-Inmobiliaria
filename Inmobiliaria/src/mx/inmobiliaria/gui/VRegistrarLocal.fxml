@@ -8,70 +8,75 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="374.0" prefWidth="801.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mx.inmobiliaria.gui.VRegistrarLocalController">
+<AnchorPane id="AnchorPane" prefHeight="374.0" prefWidth="729.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mx.inmobiliaria.gui.VRegistrarLocalController">
    <children>
-      <Label layoutX="17.0" layoutY="20.0" text="Ubicación:">
+      <ImageView fitHeight="374.0" fitWidth="739.0" layoutX="-2.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../../Desktop/21_phixr%20(2).jpg" />
+         </image>
+      </ImageView>
+      <Label layoutX="7.0" layoutY="22.0" text="Ubicación:">
          <font>
             <Font size="17.0" />
          </font>
       </Label>
-      <TextField fx:id="textFieldUbicacion" layoutX="110.0" layoutY="21.0" prefHeight="25.0" prefWidth="348.0" />
-      <TextField fx:id="textFieldPrecio" layoutX="495.0" layoutY="21.0" prefHeight="25.0" prefWidth="134.0" />
-      <Label layoutX="479.0" layoutY="21.0" text="\$">
+      <TextField fx:id="textFieldUbicacion" layoutX="85.0" layoutY="23.0" prefHeight="25.0" prefWidth="348.0" />
+      <TextField fx:id="textFieldPrecio" layoutX="451.0" layoutY="23.0" prefHeight="25.0" prefWidth="134.0" />
+      <Label layoutX="441.0" layoutY="21.0" text="\$">
          <font>
             <Font size="17.0" />
          </font>
       </Label>
-      <TextField fx:id="textFieldMetrosCuadrados" layoutX="657.0" layoutY="21.0" prefHeight="25.0" prefWidth="97.0" />
-      <Label layoutX="761.0" layoutY="21.0" text="m2">
+      <TextField fx:id="textFieldMetrosCuadrados" layoutX="598.0" layoutY="22.0" prefHeight="25.0" prefWidth="97.0" />
+      <Label layoutX="697.0" layoutY="21.0" text="m2">
          <font>
             <Font size="17.0" />
          </font>
       </Label>
-      <ImageView fx:id="imageViewA" fitHeight="106.0" fitWidth="105.0" layoutX="32.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="imageViewA" fitHeight="106.0" fitWidth="105.0" layoutX="14.0" layoutY="76.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../resource/image-default.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="imageViewB" fitHeight="106.0" fitWidth="105.0" layoutX="173.0" layoutY="76.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="imageViewB" fitHeight="106.0" fitWidth="105.0" layoutX="127.0" layoutY="77.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../resource/image-default.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="imageViewD" fitHeight="106.0" fitWidth="105.0" layoutX="173.0" layoutY="221.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="imageViewD" fitHeight="106.0" fitWidth="105.0" layoutX="127.0" layoutY="221.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../resource/image-default.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="imageViewC" fitHeight="106.0" fitWidth="105.0" layoutX="32.0" layoutY="221.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="imageViewC" fitHeight="106.0" fitWidth="105.0" layoutX="14.0" layoutY="221.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../resource/image-default.png" />
          </image>
       </ImageView>
-      <TextArea fx:id="textAreaDetalles" layoutX="306.0" layoutY="134.0" prefHeight="175.0" prefWidth="479.0" />
-      <Label layoutX="306.0" layoutY="102.0" text="Detalles extras:">
+      <TextArea fx:id="textAreaDetalles" layoutX="239.0" layoutY="134.0" prefHeight="175.0" prefWidth="458.0" />
+      <Label layoutX="287.0" layoutY="103.0" text="Detalles extras:">
          <font>
             <Font size="17.0" />
          </font>
       </Label>
-      <Button layoutX="338.0" layoutY="321.0" mnemonicParsing="false" onAction="#guardarInmueble" text="Finalizar registro">
+      <Button layoutX="308.0" layoutY="321.0" mnemonicParsing="false" onAction="#guardarInmueble" text="Finalizar registro">
          <font>
             <Font size="15.0" />
          </font>
       </Button>
-      <Button layoutX="630.0" layoutY="321.0" mnemonicParsing="false" onAction="#cerrarFormulario" text="Cancelar registro">
+      <Button layoutX="581.0" layoutY="321.0" mnemonicParsing="false" onAction="#cerrarFormulario" text="Cancelar registro">
          <font>
             <Font size="15.0" />
          </font>
       </Button>
-      <Label layoutX="306.0" layoutY="61.0" text="Tipo de adquisición:">
+      <Label layoutX="249.0" layoutY="63.0" text="Tipo de adquisición:">
          <font>
             <Font size="17.0" />
          </font>
       </Label>
-      <ComboBox fx:id="comboBoxTipoAdquisicion" layoutX="467.0" layoutY="62.0" prefHeight="25.0" prefWidth="87.0" />
-      <ComboBox fx:id="comboBoxTipoLocal" layoutX="694.0" layoutY="64.0" prefHeight="25.0" prefWidth="87.0" />
-      <Label layoutX="587.0" layoutY="64.0" text="Tipo de local:">
+      <ComboBox fx:id="comboBoxTipoAdquisicion" layoutX="408.0" layoutY="65.0" prefHeight="25.0" prefWidth="87.0" />
+      <ComboBox fx:id="comboBoxTipoLocal" layoutX="619.0" layoutY="65.0" prefHeight="25.0" prefWidth="87.0" />
+      <Label layoutX="518.0" layoutY="63.0" text="Tipo de local:">
          <font>
             <Font size="17.0" />
          </font>
